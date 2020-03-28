@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC } from 'react'
+import './App.css'
+import { Routes, Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Header } from './components/Header'
+import { ToggleButton } from './components/ToggleButton'
+import { TrueFalse } from './components/TrueFalse'
+import { Links } from './components/Links'
+import { Context } from './components/Context'
+
+const App: FC = () => {
+	return (
+		<>
+			<Links />
+			<Routes>
+				<Route
+					path='/'
+					element={<Header isActive={true} headerSubText={'World'} headerText={'Hello'} />}
+				/>
+				<Route path='/toggleButton' element={<ToggleButton />} />
+				<Route path='/trueFalseToggle' element={<TrueFalse />} />
+				<Route path='/context' element={<Context />} />
+			</Routes>
+		</>
+	)
 }
 
-export default App;
+export default App
