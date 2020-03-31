@@ -4,13 +4,23 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
+import { ApolloClient, HttpLink, InMemoryCache, ApolloProvider } from '@apollo/client'
+
+const client = new ApolloClient({
+	cache: new InMemoryCache(),
+	link: new HttpLink({
+		uri: `http://snowtooth.moonhighway.com/`
+	})
+})
 
 ReactDOM.render(
-	<React.StrictMode>
-		<Router>
-			<App />
-		</Router>
-	</React.StrictMode>,
+	<ApolloProvider client={client}>
+		<React.StrictMode>
+			<Router>
+				<App />
+			</Router>
+		</React.StrictMode>
+	</ApolloProvider>,
 	document.getElementById('⚛️')
 )
 

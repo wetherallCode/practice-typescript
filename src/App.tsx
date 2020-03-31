@@ -7,6 +7,7 @@ import { ToggleButton } from './components/ToggleButton'
 import { TrueFalse } from './components/TrueFalse'
 import { Links } from './components/Links'
 import { Context } from './components/Context'
+import { GraphQL } from './graphql/GraphQL'
 
 const App: FC = () => {
 	return (
@@ -20,6 +21,7 @@ const App: FC = () => {
 				<Route path='/toggleButton' element={<ToggleButton />} />
 				<Route path='/trueFalseToggle' element={<TrueFalse />} />
 				<Route path='/context' element={<Context />} />
+				<Route path='/graphql' element={<GraphQL />} />
 			</Routes>
 		</>
 	)
